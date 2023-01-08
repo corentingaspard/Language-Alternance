@@ -7,12 +7,12 @@ class ListMaterial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Liste de Piece disponible'),
-      ),
-      body: Center(
-        child: Text("prochainement dispo"),
-      ),
+        appBar: AppBar(
+          title: Text('Liste de Piece disponible'),
+        ),
+        body: Center(
+          child: Text("prochainement dispo"),
+        ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(
