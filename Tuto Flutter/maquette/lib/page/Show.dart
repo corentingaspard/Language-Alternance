@@ -1,11 +1,11 @@
+// ignore_for_file: file_names, camel_case_types
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class Show extends StatelessWidget {
-  Show({super.key, required this.indice});
+class show extends StatelessWidget {
+  show({super.key, required this.indice});
   final int indice;
   final int longueur = Random().nextInt(100);
   final int largeur = Random().nextInt(100);

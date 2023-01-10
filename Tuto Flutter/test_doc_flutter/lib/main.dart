@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_doc_flutter/page/exemple1.dart';
+import 'package:test_doc_flutter/page/exemple3.dart';
+
+import 'page/exemple2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Choix des test',
+      title: 'Choix des Exemple',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -75,13 +78,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => const exemple1()));
+                        pageBuilder: (_, __, ___) => const exemple2()));
               },
               label: const Text(
                 "Exemple 2",
                 style: TextStyle(fontSize: 20),
               ),
               icon: const Icon(Icons.list),
+            ),
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            ElevatedButton.icon(
+              style: const ButtonStyle(
+                  padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                  backgroundColor: MaterialStatePropertyAll(Colors.redAccent)),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const exemple3()));
+              },
+              label: const Text(
+                "Exemple 3",
+                style: TextStyle(fontSize: 20),
+              ),
+              icon: const Icon(Icons.account_tree),
             ),
             const Padding(padding: EdgeInsets.only(top: 20)),
           ],

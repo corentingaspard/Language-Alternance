@@ -24,6 +24,9 @@ class exemple1 extends StatelessWidget {
                 child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(
+              height: 50,
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -32,17 +35,24 @@ class exemple1 extends StatelessWidget {
                     border: Border.all(color: Colors.black),
                     color: const Color.fromARGB(255, 86, 151, 204),
                   ),
+                  padding: const EdgeInsets.all(20.0),
                   child: const Text("Test"),
                 ),
                 const Padding(padding: EdgeInsets.only(top: 20, right: 15)),
                 /* const Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sodales ultrices augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas ultricies, ligula id tempus facilisis, ligula orci faucibus eros, a luctus nibh tortor quis orci. Mauris in lorem at sapien suscipit efficitur quis id turpis. Suspendisse potenti. Duis placerat mi ullamcorper sapien bibendum luctus. Donec at sapien cursus, tincidunt lorem sed, convallis eros. Cras rhoncus, odio vitae tincidunt ultrices, mi metus sollicitudin sem, id porttitor mauris justo ut mauris. Nulla suscipit, purus a malesuada faucibus, neque purus suscipit tortor, eget condimentum nunc tellus quis nulla. Duis elementum accumsan lectus, id dapibus tortor volutpat a. Praesent eget lorem eros. Curabitur a pulvinar turpis. Suspendisse potenti. Ut mollis sit amet quam ac efficitur. Sed sollicitudin venenatis ullamcorper. Suspendisse quis velit sollicitudin, rutrum elit sed, luctus nibh."), */
+                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sodales ultrices augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas ultricies, ligula id tempus facilisis, ligula orci faucibus eros, a luctus nibh tortor quis orci. Mauris in lorem at sapien suscipit efficitur quis id turpis. Suspendisse potenti. Duis placerat mi ullamcorper sapien bibendum luctus. Donec at sapien cursus, tincidunt lorem sed, convallis eros. Cras rhoncus, odio vitae tincidunt ultrices, mi metus sollicitudin sem, id porttitor mauris justo ut mauris. Nulla suscipit, purus a malesuada faucibus, neque purus suscipit tortor, eget condimentum nunc tellus quis nulla. Duis elementum accumsan lectus, id dapibus tortor volutpat a. Praesent eget lorem eros. Curabitur a pulvinar turpis. Suspendisse potenti."), */
+
                 Container(
+                  width: 300,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black),
                     color: const Color.fromARGB(255, 86, 151, 204),
                   ),
-                  child: const Text("qsdhiqehdkqazjkdg"),
+                  child: const Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sodales ultrices augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas ultricies, ligula id tempus facilisis, ligula orci faucibus eros, a luctus nibh tortor quis orci. Mauris in lorem at sapien suscipit efficitur quis id turpis. Suspendisse potenti. Duis placerat mi ullamcorper sapien bibendum luctus. Donec at sapien cursus, tincidunt lorem sed, convallis eros. Cras rhoncus, odio vitae tincidunt ultrices, mi metus sollicitudin sem, id porttitor mauris justo ut mauris. Nulla suscipit, purus a malesuada faucibus, neque purus suscipit tortor, eget condimentum nunc tellus quis nulla. Duis elementum accumsan lectus, id dapibus tortor volutpat a. Praesent eget lorem eros. Curabitur a pulvinar turpis. Suspendisse potenti.",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 12,
+                  ),
                 ),
                 const Padding(padding: EdgeInsets.only(top: 20, right: 15)),
                 Container(
@@ -50,6 +60,7 @@ class exemple1 extends StatelessWidget {
                     border: Border.all(color: Colors.black),
                     color: const Color.fromARGB(255, 86, 151, 204),
                   ),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     children: [
                       Row(
@@ -69,13 +80,14 @@ class exemple1 extends StatelessWidget {
                     border: Border.all(color: Colors.black),
                     color: const Color.fromARGB(255, 86, 151, 204),
                   ),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     children: [
                       const Padding(
                           padding: EdgeInsets.only(top: 20, right: 20)),
                       Column(
                         children: [
-                          const Icon(Icons.yard),
+                          Icon(Icons.kitchen, color: Colors.green[500]),
                           Row(
                             children: const [Text("PREP :")],
                           ),
@@ -86,7 +98,7 @@ class exemple1 extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          const Icon(Icons.timelapse),
+                          Icon(Icons.timer, color: Colors.green[500]),
                           Row(
                             children: const [Text("COOK :")],
                           ),
@@ -97,7 +109,7 @@ class exemple1 extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          const Icon(Icons.fork_left),
+                          Icon(Icons.restaurant, color: Colors.green[500]),
                           Row(
                             children: const [Text("FEEDS :")],
                           ),
@@ -111,13 +123,20 @@ class exemple1 extends StatelessWidget {
                 ),
               ],
             ),
+            Container(
+              width: 50,
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Image(
                     image: NetworkImage(
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6u0T1LpjGdGvGeOIduJC2Uz2P9FjMf48auQ&usqp=CAU")),
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6u0T1LpjGdGvGeOIduJC2Uz2P9FjMf48auQ&usqp=CAU",
+                )),
               ],
+            ),
+            Container(
+              height: 50,
             )
           ],
         ))));

@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, file_names
+// ignore_for_file: camel_case_types, file_names, duplicate_ignore, avoid_print
 
 import 'package:flutter/material.dart';
 
@@ -91,19 +91,11 @@ class _recipeFormScreenState extends State<recipeFormScreen> {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  print('User :' +
-                      userController.value.text +
-                      ' Title :' +
-                      titleController.value.text +
-                      ' Description : ' +
-                      descriptionController.value.text);
+                  print(
+                      'User :${userController.value.text} Title :${titleController.value.text} Description : ${descriptionController.value.text}');
                   if (formKey.currentState!.validate()) {
-                    print('User :' +
-                        userController.value.text +
-                        ' Title :' +
-                        titleController.value.text +
-                        ' Description : ' +
-                        descriptionController.value.text);
+                    print(
+                        'User :${userController.value.text} Title :${titleController.value.text} Description : ${descriptionController.value.text}');
                     Navigator.pop(context);
                   }
                 },

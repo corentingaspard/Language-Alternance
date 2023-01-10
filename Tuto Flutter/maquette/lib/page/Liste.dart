@@ -1,9 +1,7 @@
 // ignore_for_file: camel_case_types
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:maquette/page/Show.dart';
+import 'package:maquette/page/show.dart';
 import 'package:maquette/page/recipeFormScreen.dart';
 
 class liste extends StatefulWidget {
@@ -31,7 +29,7 @@ class _listeState extends State<liste> {
                   Navigator.push(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => Show(
+                          pageBuilder: (_, __, ___) => show(
                                 indice: indice,
                               )));
                 },

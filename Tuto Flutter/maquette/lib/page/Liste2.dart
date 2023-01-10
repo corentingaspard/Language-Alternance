@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
-import 'Show.dart';
+import 'show.dart';
 
 class Liste2 extends StatefulWidget {
   const Liste2({super.key});
@@ -34,7 +36,7 @@ class _Liste2State extends State<Liste2> {
                 Navigator.push(
                     context,
                     PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => Show(
+                        pageBuilder: (_, __, ___) => show(
                               indice: items[index],
                             )));
               },
