@@ -54,9 +54,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            if (_counter > 0) Text("Continue a cliquer pour gagner"),
+            if (_counter > 0) const Text("Continue a cliquer pour gagner"),
             if (_counter >= 10)
-              Image(
+              const Image(
                   image: NetworkImage(
                       "https://www.booska-p.com/wp-content/uploads/2022/12/One-Piece-Visu-News.jpg")),
           ],

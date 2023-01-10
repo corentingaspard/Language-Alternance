@@ -8,9 +8,9 @@ class ListMaterial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Liste de Piece disponible'),
+          title: const Text('Liste de Piece disponible'),
         ),
-        body: Center(
+        body: const Center(
           child: Text("prochainement dispo"),
         ),
         floatingActionButton: FloatingActionButton(
@@ -18,10 +18,9 @@ class ListMaterial extends StatelessWidget {
             Navigator.push(
                 context,
                 PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => recipeFormScreen()));
+                    pageBuilder: (_, __, ___) => const recipeFormScreen()));
           },
-          child: Icon(Icons.add),
-        )
-    );
+          child: const Icon(Icons.add),
+        ));
   }
 }

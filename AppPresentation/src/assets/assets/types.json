@@ -1,0 +1,99 @@
+{
+    "notions" : [
+        {
+            "desc": "Nombres.",
+            "nom": "int, double",
+            "exemple": "int monEntier = 2;\ndouble monReel = 1.856;"
+        },
+        {
+            "desc": "Booleens.",
+            "nom": "bool",
+            "exemple": "bool choix1 = true;\nbool choix2 = false;"  
+        },
+        {
+            "desc": "Listes.",
+            "nom": "List (ou array)",
+            "exemple": "List<int> listeDeNombres = new List(5);\nList<int> listeDeNombres2 = List<int>();" 
+        },
+        {
+            "desc": "Collection d'objets dans laquelle chaque objet ne peut apparaître qu'une fois.",
+            "nom": "Set",
+            "exemple": "Set<int> specialNumbers = Set();\nSet<int> literalSpecialNumbers = {1, 4, 6};" 
+        },
+        {
+            "desc": "Chaines de caractères.",
+            "nom": "String",
+            "exemple": "String maChaine = 'Hello World !';" 
+        },
+        {
+            "desc": "Listes fonctionnant sur un système de clés/valeurs.",
+            "nom": "Map",
+            "exemple": "mapDeValeurs['Cle1'] = 'Valeur1';\nvar mapDeValeurs2 = Map()\n\nmapDeValeurs['Cle1'] = 'Valeur1';\nmapDeValeurs['Cle2'] = 'Valeur2';\nmapDeValeurs2[1] = 'ValeurDifferente1';\nmapDeValeurs2[2] = 'ValeurDifferente2';\n\nvar mapInitialisee = {'cle1':'valeur1', 'cle2':'valeur2'};" 
+        },
+        {
+            "desc": "Des integer représentant un code Unicode.",
+            "nom": "Runes",
+            "exemple": "void main() {\n    f1();\n}\nf1() {\n    String x = Runes;\n    print(x.codeUnits);    // [82, 117, 110, 101, 115]\n}" 
+        },
+        {
+            "desc": "Noms opaques utilisés par les miroirs, les invocations et Function.apply.",
+            "nom": "Symbol",
+            "exemple": "Symbol symbole = Symbol('nom');" 
+        },
+        {
+            "desc": "Valeur null.",
+            "nom": "Null",
+            "exemple": "e1!    // Throws si e1 est null.\n\ne2 ?? e3    // Le même que e2, sauf si e2 est null, dans ce cas utilise la valeur de e3\n\nx ??= e4    // Le même que x sauf si x est null, dans ce cas même que `x = e4`.\n\ne5?.foo()    // appelle `foo` sur e5, sauf si e5 est null.\n\n[...? e6]    // propage e6 dans la list literal, sauf si e6 est null." 
+        },
+        {
+            "desc": "Utilisé pour déclarer une variable non typée.",
+            "nom": "var",
+            "exemple": "var uneVariable = 'Hello';" 
+        },
+        {
+            "desc": "La classe Objet, classe de base de tous les objets Dart.",
+            "nom": "Object",
+            "exemple": "Object o = Object();" 
+        },
+        {
+            "desc": "Utilisés pour l'asynchronisme.",
+            "nom": "Future, Stream",
+            "exemple": "Future<void> fetchUserOrder() {\n// Imaginons que cette fonction va checher de l'info sur l'utilisateur dans un autre service ou base de donnée.\n  return Future.delayed(const Duration(seconds: 2),\n    () => print('Large Latte'));\n}\n\nvoid main() {\n  fetchUserOrder();\n  print('Fetching user order...');\n}\n\n// Fetching user order ...\n// Large Latte" 
+        },
+        {
+            "desc": "Utilisés pour les itérations.",
+            "nom": "Iterable",
+            "exemple": "void main() {\n  const iterable = ['Salad', 'Popcorn', 'Toast'];\n  for (final element in iterable) {\n    print(element);\n  }\n}\n\n// Salad\n// Popcorn\n// Toast" 
+        },
+        {
+            "desc": "Souvent utilisé pour représenter la valeur de retour de fonctions provoquant toujours des exceptions.",
+            "nom": "Never",
+            "exemple": "Never isRequired(String property) {\n  throw ArgumentError('$property is required.');\n}" 
+        },
+        {
+            "desc": "Permet d'avoir des variables dont le type peut évoluer.",
+            "nom": "dynamic",
+            "exemple": "dynamic val = 'Hello';\nprint(val);    // Hello\nprint(val.runtimeType);   // String\nval = 8;\nprint(val);    // 8\nprint(val.runtimeType)    // int" 
+        },
+        {
+            "desc": "Indique que la valeur n'est jamais utilisée, souvent comme valeur de retour.",
+            "nom": "void",
+            "exemple": "void fonction() {    // La méthode ne retourne rien\n    print('Bonjour');\n}" 
+        },
+        {
+            "desc": "Permet de définir des variables sans les initialiser de suite.",
+            "nom": "late",
+            "exemple": "late int n;\nn = 3;" 
+        },
+        {
+            "desc": "Permet d'assigner une valeur à une variable qui ne changera pas.",
+            "nom": "final",
+            "exemple": "final int constante1 =  12;\n// constance1 = 13; déclenche une erreur à la compilation\n\nfinal List<int> constante2 = [12, 15];\nconstante2.add(18);" 
+        },
+        {
+            "desc": "La même chose que final mais empêche en plus les opérations potentielles des objets.",
+            "nom": "const",
+            "exemple": "const List<int> constante3 = [12, 15];\n// constante3.add(18); déclenche une erreur à la compilation" 
+        }
+    ]
+}

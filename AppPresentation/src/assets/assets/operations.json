@@ -1,0 +1,29 @@
+{
+    "notions" : [
+        {
+            "desc" : "Ici, on crée une table stockant les informations sur différents chiens. Chaque chien a un identifiant, un nom et un âge. Ces informations sont représentées sous forme de trois colonnes dans la table.",
+            "nom": "Création d'une table",
+            "exemple": "final bdd = openDatabase(\n    // Affectez le chemin à une\n    // base de données\n    join(await getDatabasesPath(), 'bdd_chien.db'),\n    Quand la bdd est créée, créez une table pour stocker des chiens.\n    onCreate: (db, version) {\n        // Lancez l'instruction\n        // CREATE TABLE\n        // sur la bdd.\n        return db.execute(\n            'CREATE TABLE chiens(id INTEGER PRIMARY KEY, nom TEXT, age INTEGER)',\n        );\n    },\n    // Définissez la version. Cela exécute\n    // la fonction onCreate et donne un\n    // chemin pour faire des mises à jour\n    // de la bdd.\n    version: 1,\n);"
+        },
+        {
+            "desc" : "Cela se fait en deux étapes :\n-Convertir le chien en une Map\n-Utiliser la méthode insert() pour stocker la Map dans la table chiens",
+            "nom": "Insertion dans une table",
+            "exemple": "class Chien {\n    final int id;\n    final String nom;\n    final int age;\n\n    const Chien({\n        required this.id,\n        required this.nom,\n        required this.age,\n    });\n\n    // Convertissez un Chien en une Map.\n    // Les clés doivent correspondre aux\n    // noms dans les colonnes de la bdd.\n    Map<String, dynamic> toMap() {\n        return {\n            'id': id,\n            'nom': nom,\n            'age': age,\n        };\n    }\n\n    @override\n    String toString() {\n        return 'Chien{id: $id, nom: $nom, age: $age}';\n    }\n}\n\n// Définissez une fonction qui insère\n// des chiens dans la bdd\nFuture<void> insertChien(Chien chien) async {\n    // Donnez une référence à la bdd.\n    final db = await bdd;\n\n    // Insérez le Chien dans la bonne\n    // table. Vous devriez aussi\n    // spécifier le 'conflictAlgorithm'\n    // à utiliser si le même chien est\n    // inséré à deux reprises.\n    await db.insert(\n        'chiens',\n        chien.toMap(),\n        conflictAlgorithm: ConflictAlgorithm.replace,\n    );\n}\n\n// Créez un Chien et ajoutez-le\n// à la table chiens\nvar fido = const Chien(\n    id: 0,\n    name: 'Fido',\n    age: 35,\n);\n\nawait insertChien(fido);"
+        },
+        {
+            "desc" : "Maintenant qu'on a un chien stocké dans la base de données, on peut faire une requête à la bdd pour obtenir un chien ou une liste de chiens.\nOn lance la requête qui va retourner une List<Map> qu'on va ensuite convertir en List<Chien>.",
+            "nom": "Récupéreration de données",
+            "exemple": "// Une méthode qui récupère tous les\n// chiens de la table chiens.\nFuture<List<Chien>> chiens() async {\n    // Donnez une référence à la bdd.\n    final db = await database;\n\n    // Faites une requête pour obtenir\n    // la table de tous les chiens.\n    final List<Map<String, dynamic>> maps = await db.query('chiens');\n\n    // Convertissez la liste obtenue\n    // en une List<Chien>.\n    return List.generate(maps.length, (i) {\n        return Chien(\n            id: maps[i]['id'],\n            name: maps[i]['nom'],\n            age: maps[i]['age'],\n        );\n    });\n}\n\n// Utilisez la méthode pour récupérer\n// tous les chiens\nprint(await chiens());\n// Imprime une liste qui contient Fido"
+        },
+        {
+            "desc" : "Après avoir inséré des informations dans la bdd, il est possible que vous vouliez la modifier plus tard. Vous pouvez le faire en utilisant la méthode update() de la bibliothèque sqflite.",
+            "nom": "Modifier un élément",
+            "exemple": "Future<void> updateChien(Chien chien) async {\n    // Donnez une référence à la bdd.\n    // Modifiez le Chien.\n        'chiens',\n        chien.toMap(),\n        // Faites en sorte que le Chien\n        // ait le bon id.\n        where: 'id = ?',\n        // Passez l'id du Chien dans\n        // un whereArg pour éviter\n        // une injection SQL.\n        whereArgs: [chien.id],\n    );\n}\n\n// Modifiez l'age de Fido\n// et enregistrez dans la bdd.\nfido = Chien(\n    id: fido.id,\n    name: fido.nom,\n    age: fido.age + 7,\n);\nawait updateChien(fido);\n\n// Imprimez le résultat.\nprint(await chiens());\n// Imprime Fido qui a 42 ans"
+        },
+        {
+            "desc" : "Pour supprimer un élément, il faut utiliser la méthode delete() de la bibliothèque sqflite.",
+            "nom": "Supprimer un élément",
+            "exemple": "Future<void> deleteDog(int id) async {\n    // Donnez une référence à la bdd\n    final db = await bdd;\n\n    // Supprimez le Chien de la bdd.\n    await db.delete(\n        'chiens',\n        // Utilisez un 'where' pour supprimer\n        // un chien en particulier.\n        where: 'id = ?',\n        // Passez l'id du Chien dans\n        // un whereArg pour éviter une\n        // injection SQL.\n        whereArgs: [id],\n    );\n}"
+        }
+    ]
+}

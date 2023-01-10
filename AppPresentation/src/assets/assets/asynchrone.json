@@ -1,0 +1,14 @@
+{
+    "notions": [
+        {
+            "desc": "L'asynchronisme est la possibilité pour une tâche d'être réalisée en parallèle d'une autre dans un laps de temps qui diffère. Par exemple, obtenir de l'information depuis une base de données peut s'avérer long. Dans cette situation, il faut à tout prix éviter de bloquer l'application, le reste du programme doit continuer à fonctionner pendant cette recherche. La sollicitation de la base sera donc asynchrone.",
+            "nom": "Asynchronisme",
+            "exemple": ""
+        },
+        {
+            "desc": "Souvent associés à la classe Future<T>. Le mot-clé \"async\" permet d'indiquer l'asynchronisme. Le mot \"await\" indique qu'il faut attendre la réponse avant de poursuivre le code.",
+            "nom": "async, await",
+            "exemple": "Future<void> main() async {\n  print(\"1- J'arrive en premier\");\n  print(await retour1());\n  print(\"5- J'arrive en dernier\");\n}\n\nFuture<String> retour1() {\n  print(\"2- Je dois arriver en second\");n  var retour = Future.delayed(Durantion(seconds: 5), () => \"3- J'arrive un peu en retard\");\n  print(\"4- Je dois arriver en quatrième position\");\n  return retour;\n}\n\n// 1-J'arrive en premier\n// 2- Je dois arriver en second\n// 4- Je dois arriver en quatrième position\n// 3- J'arrive un peu en retard\n// 5- J'arrive en dernier"
+        }
+    ]
+}

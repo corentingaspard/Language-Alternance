@@ -1,0 +1,36 @@
+{
+    "notions" : [
+        {
+        "desc":
+            "Permet d'itérer de manière précise en gardant le contrôle. Un paramètre de type int sert de compteur (int i = x), borné à une limite définie (i < y) et pour lequel un pas est précisé (i+=z).",
+        "nom": "For",
+        "exemple": "for (int i = 0; i < 5; i++) {\n  print(\"i vaut $i\");\n}"
+        },
+        {
+            "desc":
+                "Version simplifiée du for, il faut créer une variable suivi du mot-clé \"in\" et de la collection sur laquelle l'itération se fera.",
+        "nom": "Foreach",
+            "exemple":
+                "var maCollection = [\"valeur1\", \"valeur2\", \"valeur3\"];\n\nfor (var i in maCollection) {\n  print(i);    // valeur1 valeur2 valeur3\n}"
+        },
+        {
+            "desc":
+                "Utilisé pour obtenir une répétition de la forme \"tant que ...\". La répétition débute et continue tant que la condition est vraie.",
+            "nom": "While",
+            "exemple":
+                "bool stop = false;\nvar x = 0;\n\nwhile (stop) {\n  if(x == 5) {\n    stop;\n  }\n  x++;\n}"
+        },
+        {
+            "desc":
+                "Sa structure est quasi-identique à celle du while, seulement la condition est vérifiée après et non dès le début. Le code sera donc exécuté au moins une fois.",
+            "nom": "Do While",
+            "exemple":
+                "bool stop = false;\nvar x = 0;\n\ndo {\n  if(x == 5) {\n    stop;\n  }\n  x++;\n} while (stop);"
+        },
+        {
+            "desc": "Permet de sortir d'une boucle",
+            "nom": "Break",
+            "exemple": "void main() {\n  var i = 1;\n  while(i<=10) {\n    if (i % 5 == 0) {\n      print(\"Le premier multiple de 5 entre 1 et 10 est : ${i}\");\n      break ;\n      //sort de la boucle si le premier multiple est trouvé\n    }\n    i++;\n  }\n}"
+        }
+    ]
+}

@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, file_names
+
 import 'package:flutter/material.dart';
 
 class recipeFormScreen extends StatefulWidget {
@@ -7,6 +9,7 @@ class recipeFormScreen extends StatefulWidget {
   State<recipeFormScreen> createState() => _recipeFormScreenState();
 }
 
+// ignore: camel_case_types
 class _recipeFormScreenState extends State<recipeFormScreen> {
   final formKey = GlobalKey<FormState>();
   final titleController = TextEditingController();
@@ -19,83 +22,92 @@ class _recipeFormScreenState extends State<recipeFormScreen> {
     userController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Nouvelle Objet")
-      ),
+      appBar: AppBar(title: const Text("Nouvelle Objet")),
       body: Form(
         key: formKey,
         child: ListView(
           children: [
-            Padding(padding: const EdgeInsets.only(
-              top: 16,left: 16,right: 16,bottom: 8),
-            child :TextFormField(
-              controller: titleController,
-              decoration: InputDecoration(
-                labelText: 'Title',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0))
-                )
-              ),
-              validator: (value){
-                if(value!.isEmpty){
-                  return 'Please enter a title';
-                }
-                return null;
-              },
-            )
-            ),Padding(padding: const EdgeInsets.only(
-                top: 8,left: 16,right: 16,bottom: 8),
-                child :TextFormField(
+            Padding(
+                padding: const EdgeInsets.only(
+                    top: 16, left: 16, right: 16, bottom: 8),
+                child: TextFormField(
+                  controller: titleController,
+                  decoration: const InputDecoration(
+                      labelText: 'Title',
+                      border: OutlineInputBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0)))),
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter a title';
+                    }
+                    return null;
+                  },
+                )),
+            Padding(
+                padding: const EdgeInsets.only(
+                    top: 8, left: 16, right: 16, bottom: 8),
+                child: TextFormField(
                   controller: descriptionController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       labelText: 'Description',
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0))
-                      )
-                  ),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0)))),
                   keyboardType: TextInputType.multiline,
                   minLines: 2,
                   maxLines: 5,
-
-                  validator: (value){
-                    if(value!.isEmpty){
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return 'Please enter a description';
                     }
                     return null;
                   },
-                )
-            ),Padding(padding: const EdgeInsets.only(
-                top: 8,left: 16,right: 16,bottom: 16),
-                child :TextFormField(
+                )),
+            Padding(
+                padding: const EdgeInsets.only(
+                    top: 8, left: 16, right: 16, bottom: 16),
+                child: TextFormField(
                   controller: userController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       labelText: 'User',
                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(20.0))
-                      )
-                  ),
-                  validator: (value){
-                    if(value!.isEmpty){
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(20.0)))),
+                  validator: (value) {
+                    if (value!.isEmpty) {
                       return 'Please enter a User';
                     }
                     return null;
                   },
-                )
+                )),
+            const SizedBox(
+              height: 8,
             ),
-            SizedBox(height: 8,),
             Center(
               child: ElevatedButton(
-                onPressed: (){
-                  print('User :'+userController.value.text+' Title :'+titleController.value.text + ' Description : '+ descriptionController.value.text);
-                  if(formKey.currentState!.validate()){
-                    print('User :'+userController.value.text+' Title :'+titleController.value.text + ' Description : '+ descriptionController.value.text);
+                onPressed: () {
+                  print('User :' +
+                      userController.value.text +
+                      ' Title :' +
+                      titleController.value.text +
+                      ' Description : ' +
+                      descriptionController.value.text);
+                  if (formKey.currentState!.validate()) {
+                    print('User :' +
+                        userController.value.text +
+                        ' Title :' +
+                        titleController.value.text +
+                        ' Description : ' +
+                        descriptionController.value.text);
                     Navigator.pop(context);
                   }
                 },
-                child: Text('Save'),
+                child: const Text('Save'),
               ),
             )
           ],

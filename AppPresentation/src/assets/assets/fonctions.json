@@ -1,0 +1,34 @@
+{
+    "notions" : [
+        {
+            "desc" : "Fonction qui n'attend pas de paramètres et ne renvoie rien. Elle est de type void, c'est une \"procédure\".",
+            "nom": "Fonction simple",
+            "exemple": "void main() {\n  //Point d'entrée du programme\n  afficher();\n}\n\nvoid afficher() {\n  print(\"Hello World !\");\n}"
+        },
+        {
+            "desc" : "Se comporte comme une fonction simple hormis qu'une réponse va être renvoyée. Le mot void disparaît au profit du type de la valeur retournée. A l'intérieur de la fonction, on utilise le mot \"return\" pour retourner la valeur ou la variable.",
+            "nom": "Fonction avec retour",
+            "exemple": "void main() {\n  //Point d'entrée du programme\n  afficher();\n  String prenomRecupere = obtenirUnPrenom();\n  print(prenomRecupere);   //Julien\n}\n\nvoid afficher() {\n  print(\"Hello World !\");\n}\n\nString obtenirUnPrenom() {\n  String prenom = \"Julien\";\n  return prenom;\n}"
+        },
+        {
+            "desc" : "Les fonctions peuvent avoir besoin de recevoir des paramètres afin de les exploiter dans le cadre de leur traitement. Ces paramètres peuvent être de différent nombres et types, on les écrit à l'intérieur des parenthèses de la signature.",
+            "nom": "Fonction avec paramètre",
+            "exemple": "void main() {\n  //Point d'entrée du programme\n  print(mettrePrenomEnMajuscule(\"Julien\"));\n  //Hello JULIEN !\n}\n\nString mettrePrenomEnMajuscule(String prenom) {\n  String retour = \"Hello ${prenom.toUpperCase()} !\";\n  return retour;\n}"
+        },
+        {
+            "desc" : "Il est aussi possible de rendre certains paramètres optionnels. Pour cela, il faut les mettre entre crochets.",
+            "nom": "Fonction avec paramètre optionnels",
+            "exemple": "void fonctionAvecParametreOptionnel(String nom, String prenom, [int age]) {\n  if(age != null) {\n    print(\"nom : $nom, prénom : $prenom, âge : $age\");\n  } else {\n    print(\"nom : $nom, prénom : $prenom\");\n  }\n}"
+        },
+        {
+            "desc" : "Les fonctions anonymes n'ont pas de nom, elles ne pourront pas être appellées dans un autre endroit dans le code.",
+            "nom": "Fonction anonyme",
+            "exemple": "var prenoms = [\"Julien\", \"Jules\", \"Hugo\"];\n\nprenoms.forEach((item) {\n  print(\"${prenoms.indexOf(item)} : $item\");\n});\n\n// 0: Julien\n// 1: Jules\n// 2: Hugo"
+        },
+        {
+            "desc" : "Elles sont identiques aux fonctions classiques à la différence que la syntaxe est plus courte : on remplace les accolades par une flèche \"=>\".",
+            "nom": "Fonction fléchée ou fonction lambda",
+            "exemple": "// La fonction afficher()\nvoid afficher() {\n  print(\"Hello World !\");\n}\n// peut s'écrire aussi :\nvoid afficher2() => print(\"Hello World !\");"
+        }
+    ]
+}

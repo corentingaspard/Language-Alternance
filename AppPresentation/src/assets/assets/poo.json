@@ -1,0 +1,69 @@
+{
+    "notions" : [
+        {
+            "desc" : "La classe peut être considérée comme un moule qui va servir à créer des objets appelés instances. En général, il est conseillé de créer des fichiers indépendants qui ne contiendront chacun qu'une classe. Cependant, il est possible de créer une classe dans une autre : c'est une classe interne.",
+            "nom": "Classe",
+            "exemple": "class Personne {\n\n}"
+        },
+        {
+            "desc": "Dans une classe, les attributs pourraient être considérés comme les caractéristiques de l'objet. On déclare des attributs de la même façon que des variables quelconques. Cependant il y a une particularité : l'encapsulation (il est possible de rendre des attributs privés pour qu'ils ne soient exploitables que dans la classe où ils se trouvent).",
+            "nom": "Attributs",
+            "exemple": "class Personne {\n  String nom;\n  String _prenom;\n  // On précède les attributs de \"_\" pour les rendre privés\n}"
+        },
+        {
+            "desc": "Le constructeur est un moyen de créer une nouvelle instance d'une classe. Il s'écrit en reprenant le nom de la classe suivi, entre parenthèses, des différents paramètres qui viendront alimenter les attributs.",
+            "nom": "Constructeur",
+            "exemple": "Personne (String nom, String prenom) {\n  this.nom = nom;\n  this._prenom = prenom;\n}\n\n// Dart permet de réduire le code pour obtenir une écriture équivalente plus courte :\nPersonne (this.nom, this._prenom);\n\n// On peut aussi rendre des paramètres optionnels en utilisant les accolades :\nPersonne (this._prenom, {this.nom});"
+        },
+        {
+            "desc": "En principe, en Dart, il n'y a besoin que d'un seul constructeur grâce aux possibilités offertes avec les paramètres optionnels. Cependant, il peut être pratique d'en posséder plusieurs et de leur donner un nom pour rendre leur utilité plus claire.",
+            "nom": "Constructeur nommé",
+            "exemple": "class Personne {\n  String nom;\n  String _prenom;\n  String telephone;\n  String adresse;\n\n  //Un constructeur pour tous les attributs avec le prénom obligatoire\n  Personne(this._prenom, {this.nom, this.telephone, this.adresse});\n\n  //Un constructeur nommé etatCivil qui n'attend que le prénom et le nom\n  Personne.etatCivil(this._prenom, this.nom);\n}"
+        },
+        {
+            "desc": "Permet de créer des variables à partir d'un objet. Pour les paramètres optionnels, on précède le paramètre par son nom afin d'éviter toute confusion car ils sont dispensables et plaçables dans n'importe quel ordre.",
+            "nom": "Instanciation",
+            "exemple": "import 'Personne.dart';\n\nvoid main() {\n\n  String nom = \"TRILLARD\";\n  String prenom = \"Julien\";\n  String telephone = \"0203040506\";\n  String adresse = \"ENI Edition, Nantes\";\n\n  // Appel du constructeur en utilisant différents paramètres\n  Personne u1 = Personne(prenom);\n  Personne u2 = Personne(prenom, nom: nom);\n  Personne u3 = Personne(prenom, nom: nom, adresse: adresse, telephone: telephone);\n  // Utilisation du constructeur nommé\n  Personne u4 = Personne.etatCivil(prenom, nom);\n}"
+        },
+        {
+            "desc": "Getter : méthode permettant de lire la valeur d'un attribut privé, setter : méthode permettant de modifier la valeur d'un attribut privé.",
+            "nom": "Accesseurs et mutateurs (getters et setters)",
+            "exemple": "// Getter\nString get prenom => _prenom;\n\n// Setter\nset prenom(String value) {\n  _prenom = value;\n}"
+        },
+        {
+            "desc": "Quand les objets travaillent ensemble, on parle d'association.",
+            "nom": "Association",
+            "exemple": "class Adresse {\n  int _numeroDeVoie;\n  String _nomDeLaVoie;\n  String _codePostal;\n  String nomDeLaCommune;\n\n...\n}\n\nclass Personne {\n  String nom;\n  String _prenom;\n  String telephone;\n  //L'adresse n'est plus du type String, mais fait référence à la classe Adresse\n  Adresse adresse;\n\n...\n}"
+        },
+        {
+            "desc": "L'héritage est utilisé quand des points communs existent entre deux ou plusieurs classes. Il est alors possible de \"rassembler\" ces traits de caractère communs dans une classe mère et d'en faire hériter les classes filles. On utilise le mot clé extends suivi du nom de la classe mère pour utiliser l'héritage.",
+            "nom": "Héritage",
+            "exemple": "class Utilisateur extends Personne {\n  String login;\n  String motDePasse;\n\n  Utilisateur(String prenom, this.login, this.motDePasse) :\nsuper('prenom');\n}"
+        },
+        {
+            "desc": "Dans le cadre de l'héritage, il est aussi possible de \"surcharger\" une méthode appartenant à la classe mère à l'intérieur d'une classe fille. On peut alors soit la conserver et y ajouter du code, soit la modifier totalement. On utilise le mot \"super\" pour utiliser une méthode de la classe mère.",
+            "nom": "Surcharge de méthodes",
+            "exemple": "//La méthode dans la classe Personne :\nString parler(String phrase) => \"Une personne parler et dit $phrase\";\nprint(s1.parler(\"bonjour\"));\n// Une personne parle et dit bonjour\n\n// Dans la classe fille Salarie :\nString parler(String phrase) {\n  return super.parler(phrase) + \", il s'agit d'un salarié\";\n  // Une personne parle et dit bonjour, il s'agit d'un salarié\n}\n\n// Il est aussi possible de modifier totalement la méthode :\nString parler(String phrase) {\n  return \"Un salarié parle et dit $phrase;\n}"
+        },
+        {
+            "desc": "Dart ne tolère pas l'héritage multiple. Pour pallier cela, il existe un autre type de classe appelée \"interface\". Elle permet d'obliger une classe à implémenter certaines méthodes. La classe qui ne sert qu'à exposer certaines méthodes sera qualifiée d'abstraite (abstract), elle ne pourra pas être instanciée.",
+            "nom": "Interface",
+            "exemple": "abstract class Marcheur {\n  void marcher();\n}\n\nclass Salarie extends Personne implements Marcheur {\n  // Pour qu'une classe implémente l'interface, il faut utiliser implements suivi du nom de l'interface.\n  double salaire;\n\n  Salarie(String prenom, this.salaire) : super(prenom);\n\n  @override\n  void marcher() {\n    print(\"Je marche comme un salarié !\");\n  }\n}"
+        },
+        {
+            "desc": "Le mixin est une solution intermédiaire entre l'héritage et l'interface. Il s'agit d'un mix d'un \"mélange entre\". On utilise de mot \"with\" pour signifier le mixin.",
+            "nom": "Mixin",
+            "exemple": "classe Profession {\n  String metier;\n\n String competence(List<String> competences) {\n    StringBuffer sb = StringBuffer();\n    sb.writeln(\"Le $metier a les compétences : \");\n\n    for(String c in competences) {\n      sb.writelin(\"- $c\");\n    }\n\n    return sb.toString();\n  }\n}\n\nclass Utilisateur extends Personne with Profession {\n  String login;\n  String motDePasse;\n\n  Utilisateur(String prenom, this.login, this.motDePasse) : super('prenom');\n}\n\nu2.metier = \"Développeur\";\n\nList<String> competences = [\"Flutter\", \"Dart\", \"Java\", \"c++\"];\n\nprint(u2.competence(competences));\n\n// Le Développeur a les compétences suivantes :\n// - Flutter\n// - Dart\n// - Java\n// d- c++"
+        },
+        {
+            "desc": "Elles permettent de rajouter du code au sein de classes dans un fichier à part. Elles trouvent tout leur sens dans l'utilisation d'API.",
+            "nom": "Extension",
+            "exemple": "import 'Salarie.dart';\n\nextension SalarieExtension on Salarie {\n  double convertirSalaireDollars() {\n    return this.salaire * 1.11;\n  }\n}"
+        },
+        {
+            "desc": "Les méthodes statiques peuvent être appellées sans instance existante, il suffit de s'appuyer sur le nom de la classe.",
+            "nom": "Static",
+            "exemple": "import 'Salarie.dart';\n\nfinal double _tauxEuroDollar = 1.11;\n\nextension SalarieExtension on Salarie {\n  double convertirSalaireDollars() {\n    return this.salaire * _tauxEuroDollar;\n  }\n\n  static double getTauxEuroDollar()\n    return _tauxEuroDollar;\n  }\n}\n\nmain() {\n  print(\"Le taux Euro/dollar est de : ${SalarieExtension.getTauxEuroDollar()}\");"
+        }
+    ]
+}

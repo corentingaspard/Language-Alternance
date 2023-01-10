@@ -1,0 +1,16 @@
+{
+    "notions" : [
+            {
+                "desc":
+                    "StatelessWidget est une classe (un widget) qui sert à créer une interface utilisateur. Elle n'a pas vocation à voir son état évoluer dans le temps. La classe implémentant StatelessWidget doit intégrer un widget build.",
+                "nom": "StatelessWidget",
+                "exemple": "class MyHomePage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    // TODO: implement build\n    return null;\n  }\n}"
+            },
+            {
+                "desc":
+                    "Le StatefulWidget, lui, est un widget qui a vocation à voir son état évoluer avec le temps. Sa construction est différente et se réalise par le biais de deux classes. La première étend StatefulWidget et a surtout un rôle déclaratif, la seconde va devoir prendre en charge la partie graphique ainsi que son évolution.",
+                "nom": "StatefulWidget",
+                "exemple": "class YellowBird extends StatefulWidget {\n  const YellowBird({ Key? key }) : super(key: key);\n\n  @override\n  State<YellowBird> createState() => _YellowBirdState();\n}\n\nclass _YellowBirdState extends State<YellowBird> {\n  @override\n  Widget build(BuildContext context) {\n    return Container(color: const Color(0xFFFFE306));\n  }\n}"
+            }
+    ]
+}

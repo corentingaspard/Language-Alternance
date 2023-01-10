@@ -1,0 +1,24 @@
+{
+    "notions" : [
+        {
+            "desc" : "Pour travailler avec les bases de données SQLite, il faut importer les packages sqflite et path.",
+            "nom": "Dépendances",
+            "exemple": "dependencies:\n    flutter:\n        sdk: flutter\n    sqflite:\n    path:"
+        },
+        {
+            "desc" : "Il ne faut pas oublier d'importer les packages dans le fichier dans lequel vous allez travailler.",
+            "nom": "Imports",
+            "exemple": "import 'dart:async';\n\nimport 'package:path/path.dart';\nimport 'package:sqflite/sqflite.dart';"
+        },
+        {
+            "desc" : "Avant de créer la table contenant les informations, il faut définir les données qui vont être stockées.\nIci, on définit une classe Chien qui contient trois données : un identifiant, un nom et un age.",
+            "nom": "Définition du modèle de données",
+            "exemple": "class Chien {\n    final int id;\n    final int nom;\n    final int age;\n\n    const Chien({\n        required this.id,\n        required this.nom,\n        required this.age,\n    });\n}"
+        },
+        {
+            "desc" : "Avant de lire et d'écrire dans la base de données, on doit ouvrir une connection à la base.\nD'abord, on définit le chemin vers le fichier de la base de données en utilisant getDatabasesPath(), combiné à la fonction join du package path.\nEnsuite, on ouvre la base de données avec la fonction openDatabase() de sqflite.",
+            "nom": "Ouverture de la base de données",
+            "exemple": "// Evite les erreurs causées par flutter upgrade\n// Importer 'package:flutter/widgets.dart' est nécessaire.\nWidgetsFlutterBinding.ensureInitialized();\n// On ouvre la base de données et on stocke la référence.\nfinal bdd = openDatabase(\n    // On affecte le chemin à la base de données\n    join(await getDatabasesPath(), 'bdd_chien'),\n);"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "notions" : [
+        {
+            "desc" : "Les données sont travaillées autour du principe clé/valeur. Les valeurs peuvent être des objets, des tableaux ou des types plus génériques tels que des nombres, des chaînes de caractères, des booléens...",
+            "nom": "Fichier JSON",
+            "exemple": "{\n    \"personne\": [\n\n        {\n            \"id\": \"1\",\n            \"nom\": \"DOE\",\n            \"prenom\": \"John\"\n        },\n\n        {\n            \"id\": \"2\",\n            \"nom\": \"DOE\",\n           \"prenom\": \"Jane\"\n        }\n\n    ]\n}"
+        },
+        {
+            "desc" : "En important dart:convert, il est possible d'accéder à deux méthodes permettant de l'encodage en JSON et son décodage.",
+            "nom": "Récupération des dépendances",
+            "exemple": "import 'dart:convert' as convert;"
+        },
+        {
+            "desc" : "L'utilisation de JSON est très souvent consécutive à une requête HTTP effectuée auprès d'un serveur. Il faut alors pouvoir communiquer avec un serveur et émettre des requêtes HTTP, le package http le permet.",
+            "nom": "Package http",
+            "exemple": "dependencies :\n  http ^0.12.0+4\n\n//On récupère la réponse du serveur avec http.get()\nvar response = await http.get(url);\n\n//Et on la convertit en une Map<String, dynamic> avec convert.jsonDecode()\nMap<String, dynamic> film = convert.jsonDecode(response.body);"
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "notions" : [
+        {
+            "desc":
+                "Correspond littéralement au si ... alors ..., le \"else\" correspond au sinon ... ",
+            "nom": "If",
+            "exemple":
+                "if (footballeur) {\n  print(\"Je pratique le football.\");\n} else if (nageur) {\n  print(\"Je pratique la natation\");\n} else {\n  print(\"Je ne fais aucun sport !\");\n}"
+        },
+        {
+            "desc": "En traduction brute, il s'agirait du \"au cas où\".",
+            "nom": "Switch",
+            "exemple":
+                "switch (sport) {\n  case 'football' :\n    print(\"Je pratique le football.\");\n    break;\n  case 'natation' :\n    print(\"Je pratique la natation\");\n    break;\n  default :\n    print(\"Je ne fais aucun sport !\");\n}"
+        },
+        {
+            "desc":
+                "Une forme simplifiée du if avec une syntaxe particulière. D'abord la condition suivie d'un \"?\" puis le code à exécuter si la condition est vraie, enfin un \":\" suivi du code qui sera exécuté si la condition est fausse.",
+            "nom": "Opérateur ternaire",
+            "exemple":
+                "footballeur ? print(\"Je pratique le football\") : print(\"Je ne fais pas de football\");"
+        },
+        {
+            "desc":
+                "Il est très proche de l'opérateur ternaire, la différence est qu'on utilise deux points d'interrogation pour vérifier la nullité d'un objet.",
+            "nom": "Opérateur de nullité",
+            "exemple":
+                "void pratiqueDuFootball(bool foot) {\n  if (foot == null) {\n    print(\"Je ne pratique pas le football.\");\n  }\n}\n\nvoid pratiqueDuFootball(bool foot) =>\nfoot ?? print(\"je ne pratique pas le football !\n\n// Les deux fonctions font la même chose\");"
+        }
+  ]
+}

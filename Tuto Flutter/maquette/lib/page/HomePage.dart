@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:maquette/page/recipeFormScreen.dart';
+// ignore_for_file: file_names
 
-import 'Liste.dart';
+import 'package:flutter/material.dart';
+import 'liste.dart';
+import 'Liste2.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
@@ -13,7 +14,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Premier APP'),
+        title: const Text('Premier APP'),
       ),
       body: Center(
         child: Column(
@@ -22,27 +23,45 @@ class HomePage extends StatelessWidget {
             const Text(
               'Premier APP',
             ),
-            Text(
+            const Text(
               'Voici une petit description',
             ),
-            Padding(padding: EdgeInsets.only(top: 20)),
+            const Padding(padding: EdgeInsets.only(top: 20)),
             ElevatedButton.icon(
-              style: ButtonStyle(
+              style: const ButtonStyle(
                   padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
                   backgroundColor: MaterialStatePropertyAll(Colors.green)),
               onPressed: () {
                 Navigator.push(
                     context,
                     PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => liste()));
+                        pageBuilder: (_, __, ___) => const liste()));
               },
-              label: Text(
+              label: const Text(
                 "Liste des pièces",
                 style: TextStyle(fontSize: 20),
               ),
-              icon: Icon(Icons.list),
+              icon: const Icon(Icons.list),
             ),
-            Padding(padding: EdgeInsets.only(top: 20)),
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            ElevatedButton.icon(
+              style: const ButtonStyle(
+                  padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+                  backgroundColor:
+                      MaterialStatePropertyAll(Colors.orangeAccent)),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (_, __, ___) => const Liste2()));
+              },
+              label: const Text(
+                "Liste Test",
+                style: TextStyle(fontSize: 20),
+              ),
+              icon: const Icon(Icons.list),
+            ),
+            const Padding(padding: EdgeInsets.only(top: 20)),
           ],
         ),
       ),

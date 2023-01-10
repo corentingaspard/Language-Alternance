@@ -1,0 +1,24 @@
+{
+    "notions" : [
+        {
+            "desc" : "Pour passer d'un écran à l'autre, il suffit d'utiliser Navigator.push. Deux paramètres sont attendus : le contexte courant et un objet MaterialPageRoute, qui indique vers quelle page se diriger.",
+            "nom": "Navigator.push",
+            "exemple": "onPressed: () {\n  Navigator.push(\n    context,\n    MaterialPageRoute(\n      builder: (BuildContext context) =>\n        MySecondPage(title: title)));\n}"
+        },
+        {
+            "desc" : "Avec Navigator.push, une pile de route est mise en place. La fonction pop de Navigator permet de revenir à la route précédente, au moment de son exécution, elle supprime la route courante de la pile.",
+            "nom": "Navigator.pop",
+            "exemple": "Text(\"Appuyer sur ce bouton pour revenir à l'écran précédent\"),\nPadding(padding: EdgeInsets.only(bottom: 20)),\nRaisedButton(\n  child: Text('Précédent'),\n  color: Colors.blue,\n  textColor: Colors.white,\n  onPressed: () {\n     Navigator.pop(context);\n  }),"
+        },
+        {
+            "desc" : "Dans la classe qui sert au lancement (runApp), il existe un paramètre du constructeur MateriallApp qui se nomme routes. Il va accueillir une map possédant une clé de type chaîne de caractères et une valeur de type WidgetBuilder.",
+            "nom": "Routes",
+            "exemple": "void main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'Flutter Demo',\n      theme: ThemeData(\n        primarySwatch: Colors.blue,\n      ),\n      home: MyFirstPage(title: 'Flutter Demo Home Page'),\n      routes: <String, WidgetBuilder> {\n        '/route1': (BuildContext context) => MyFirstPage(title: 'Page 1'),\n        '/route2': (BuildContext context) => MySecondPage(title: 'Page2'),\n        '/route3': (BuildContext context) => MyThirdPage(title: 'Page 3'),\n      },\n    );\n  }\n}"
+        },
+        {
+            "desc" : "Une fois référencées, les pages peuvent être appelées grâce à la méthode Navigator.pushNamed qui prend deux paramètres: le contexte et une des clés définies dans routes.",
+            "nom": "Navigator.pushNamed",
+            "exemple": "Navigator.pushNamed(context, '/route2');"
+        }
+    ]
+}

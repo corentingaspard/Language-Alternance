@@ -1,0 +1,29 @@
+{
+    "notions" : [
+        {
+            "desc": "Les exceptions sont des erreurs pouvant être levées à l'exécution du programme. Elles indiquent que quelque chose s'est mal déroulé. Les exceptions système sont courantes, elles répondent aux problématiques les plus fréquentes.",
+            "nom": "Exception système",
+            "exemple": "void main() {\n\n  String nom = null;\n\n  try {\n    nom.toUpperCase();\n  } catch (e) {\n    print(\"Problème sur toUpperCase : ${e.toString()}\");\n  }\n}\n\n// Problème sur toUpperCase : NoSuchMethodError:\n// The method 'toUpperCase' was called on null.\n// Receiver: null\n// Tried calling: toUpperCase()"
+        },
+        {
+            "desc": "Le mot-clé \"throw\" sert à propager l'exception, à l'envoyer hors de la fonction.",
+            "nom": "Throw",
+            "exemple": "String getNomEnMajuscule() {\n  if (nom != null) {\n    return nom.toUpperCase();\n  } else {\n    throw 'LE NOM NE DOIT PAS ETRE NULL !!';\n  }\n}\n\ntry {\n  print(p1.getNomEnMajuscule());\n} catch (e) {\n  print(e);\n}\n\n// LE NOM NE DOIT PAS ETRE NULL !!"  
+        },
+        {
+            "desc": "Ce mot-clé vient ajouter un ultime bloc après le \"catch\" et sert à exécuter un traitement, peu importe qu'une exception soit levée ou non.",
+            "nom": "Finally",
+            "exemple": "try {\n  print(p1.getNomEnMajuscule());\n} catch (e) {\n  print(e);\n} finally {\n  print(\"Je m'exécute quoiqu'il arrive !\");\n}"  
+        },
+        {
+            "desc": "Les exceptions personnalisées sont utiles dans tous les cas qui ne sont pas prévus avec les exceptions système.",
+            "nom": "Exceptions personnalisées",
+            "exemple": "class ExceptionPerso implements FormatException {\n  int _source;\n  ExceptionPerso(this._source);\n\n  @override\n  String get message => \"Le code postal doit comporter 5 caractères !\";\n\n  @override\n  int get offset => 5-_source;\n\n  @override\n  get source => _source;\n}"  
+        },
+        {
+            "desc": "Il est aussi possible que plusieurs types d'exception soient levés sur une même portion de code. Il faut alors mettre en place plusieurs \"catch\" qui viendront capter les différentes exceptions afin de leur appliquer un traitement différent.",
+            "nom": "Exceptions multiples",
+            "exemple": "try {\n  Adresse a1 = AdresseFR('111', 1, 'Rue de la paie', 'NANTES');\n} on ExceptionPerso catch (e) {\n  print(' ${e.message} La valeur saisie fait ${e.source} caractères. Il manque ${e.offset} caractères.');\n} catch (e) {\n  print(\"Autre exception\");\n}"  
+        }
+    ]
+}
