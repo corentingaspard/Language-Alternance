@@ -3,6 +3,8 @@
 ## ExpressJs
 Avant que Hervé ne m'indique le langage que je vais utiliser lors de la premier mission, je mettais entrainer à utiliser le FrameWork ExpressJs.
 
+Tutoriel utiliser pour comprendre ExpressJS : https://youtu.be/ku2lVBn8nSI
+
 ## Flutter
 Pour le langage Flutter, j'ai au debut developper une application Flutter de Base afin d'effectuer des test basique du fonctionnement de Flutter.
 Puis j'ai commencer a suivre un Tutoriel permettant de faire une application Flutter.
