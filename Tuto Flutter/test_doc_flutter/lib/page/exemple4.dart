@@ -11,6 +11,7 @@ class exemple4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('Exemple 2'),
         ),
         body: ListView(

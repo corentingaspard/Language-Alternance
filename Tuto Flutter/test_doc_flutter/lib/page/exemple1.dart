@@ -17,6 +17,7 @@ class exemple1 extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('Exemple 1'),
         ),
         body: SingleChildScrollView(

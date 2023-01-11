@@ -11,6 +11,7 @@ class exemple3 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: const Text('Exemple 3'),
         ),
         body: GridView.extent(
