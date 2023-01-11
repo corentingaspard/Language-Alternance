@@ -1,0 +1,31 @@
+{
+    "accueil":[
+        {
+            "title" : "Fondamentaux",
+            "button" : [ "Type","Alternative","Boucle"]
+        },
+        {
+            "title" : "Notions avancées",
+            "button" : [ "Fonction","Programation Orientée Objet","Exception","Traitement asynchrone"]  
+        },
+        {
+            "title" : "Principaux widgets",
+            "button" : [ "Fonction","Programation Orientée Objet","Exception","Traitement asynchrone"]  
+        },
+        {
+            "title" : "SQLite",
+            "button" : [ "Mise en place","Opération","Exemple"]  
+        },
+        {
+            "title" : "Autres",
+            "button" : [ "Les états","Provider","Bloc","Route","API","JSON"]  
+        }
+    ],
+    "Type" : [
+        {
+            "title" : "int double",
+            "description":"Nombres",
+            "Exemple" : "int monEntier = 2; \n double monReel = 1.856;"
+        }
+    ]
+}
