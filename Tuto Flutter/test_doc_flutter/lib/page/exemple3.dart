@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types
+// ignore_for_file: camel_case_types, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 
@@ -23,6 +23,4 @@ class exemple3 extends StatelessWidget {
 }
 
 List<Container> _buildGridTileList(int count) => List.generate(
-    // ignore: avoid_unnecessary_containers
-    count,
-    (i) => Container(child: Image.asset('images/pic$i.jpg')));
+    count, (i) => Container(child: Image.asset('images/pic$i.jpg')));
