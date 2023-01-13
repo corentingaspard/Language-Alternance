@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_presentation/page/notion.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,35 +51,30 @@ Widget _buildMain(BuildContext context) {
         children: <Widget>[
           const Text(
             'Choisissez l\'aspect à decouvrir',
+            style: TextStyle(fontSize: 25),
           ),
           const Padding(padding: EdgeInsets.only(top: 20)),
-          const Text(
-            "Voici les exemple image de la doc que j'ai reproduit",
-          ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          _buildbutton(context, Colors.green, "Exemple 1", const dsdsdf(),
-              Icons.add_a_photo),
+          _buildbutton(context, "Exemple 1", const notion(), Icons.add_a_photo),
         ],
       ),
     ),
   ]));
 }
 
-Widget _buildbutton(context, color, texte, redirection, icon) {
-  return ElevatedButton.icon(
+Widget _buildbutton(context, texte, redirection, icon) {
+  return ElevatedButton(
     style: ElevatedButton.styleFrom(
-      backgroundColor: color,
-      minimumSize: const Size.fromHeight(50), // NEW
+      backgroundColor: Colors.blue,
+      minimumSize: const Size.fromHeight(50),
     ),
     onPressed: () {
       Navigator.push(
           context, PageRouteBuilder(pageBuilder: (_, __, ___) => redirection));
     },
-    label: Text(
+    child: Text(
       texte,
       selectionColor: Colors.white,
       style: const TextStyle(fontSize: 20),
     ),
-    icon: Icon(icon),
   );
 }

@@ -1,0 +1,86 @@
+{
+    "accueil":[
+        {
+            "title" : "Fondamentaux",
+            "button" : [ "Type","Alternative","Boucle"]
+        },
+        {
+            "title" : "Notions avancées",
+            "button" : [ "Fonction","Programation Orientée Objet","Exception","Traitement asynchrone"]  
+        },
+        {
+            "title" : "Principaux widgets",
+            "button" : [ "Fonction","Programation Orientée Objet","Exception","Traitement asynchrone"]  
+        },
+        {
+            "title" : "SQLite",
+            "button" : [ "Mise en place","Opération","Exemple"]  
+        },
+        {
+            "title" : "Autres",
+            "button" : [ "Les états","Provider","Bloc","Route","API","JSON"]  
+        }
+    ],
+    "Type" : [
+        {
+            "title" : "int double",
+            "description":"Nombres",
+            "Exemple" : "int monEntier = 2; \n double monReel = 1.856;"
+        },
+        {
+            "title" : "bool",
+            "description":"Booleens",
+            "Exemple" : "bool choix1 = true; \n bool choix2 = false;"
+        },
+        {
+            "title" : "List (ou array)",
+            "description":"Listes.",
+            "Exemple" : "List<int> listDeNombres = new List(5); \n List<int> listDeNombres2 = List<int>();"
+        },
+        {
+            "title" : "Set",
+            "description":"Collection d'objets dans laquelle chaque objet ne peut apparaître qu'une fois",
+            "Exemple" : "Set<int> specialNumbers = Set(); \n Set<int> literalSpecialNumbers = {1,4,6};"
+        },
+        {
+            "title" : "String",
+            "description":"Chaines de caractères.",
+            "Exemple" : "String maChaine = \"Hello World !\" "
+        },
+        {
+            "title" : "Map",
+            "description":"Listes fonctionnant sur un système de clés/valeurs",
+            "Exemple" : "mapDeValeurs['Cle1'] = 'Valeur1'; \n var mapDeValeur2 = Map(); \n\n mapDeValeurs['Cle2'] = 'Valeur2'; \n mapDeValeurs['Cle1'] = 'Valeur1'; \n mapDeValeurs2[1] = 'ValeurDifferente1'; \n mapDeValeurs2[2] = 'ValeurDifferente2'; \n \n var mapInitialisee = {'cle1':'valeur1','cle2':'valeur2'"
+        },
+        {
+            "title" : "Runes",
+            "description":"Des integer représentant un code Unicode",
+            "Exemple" : "void main(){ \n    f1(); \n}f1(){\n    String x = Runes; \n    print(x.codeUnits);  //[82,117,110,101,115] \n}"
+        },
+        {
+            "title" : "Null",
+            "description":"Valeur null.",
+            "Exemple" : "e1! // Throws si e1 est null.\n\n e2 ?? e3  //Le même que e2, sauf si e2 est null, dans ce cas utilise la valeur de e3 \n\n x ??=e4 // Le même que x, sauf si x est null, dans ce cas même que 'x=e4\n\n e5?.foo() //appelle 'foo' sur e5, sauf si e5 est null\n\n [...?e6] // propage e6 dans la list literal, sauf su e6 est null"
+        },
+        {
+            "title" : "var",
+            "description":"utilisé pour déclarer une variable non typée.",
+            "Exemple" : "var uneVariable = 'Hello';\n\n uneVariable = 5"
+        },
+        {
+            "title" : "Object",
+            "description":"La classe Objet, classe de base de tous les objets Dart.",
+            "Exemple" : "Object o = Object();"
+        },
+        {
+            "title" : "Future, Stream",
+            "description":"Utilisés pour l'asynchronisme.",
+            "Exemple" : "Future<void> fetchUserOrder(){\n   return Future.delayed(const Duration(seconds: 3),\n     ()=>print('Large Latte'));\n}\n\nvoid main(){\n     fetchUserOrder();\n     print('Fetching user order...');\n\n// Fetching user Order ... \n\n // Large Latte"
+        },
+        {
+            "title" : "Iterable",
+            "description":"Utilisés pour les itérations.",
+            "Exemple" : "void main(){ \n   const iterable = ['Salad','Popcorn','Toast']; \n}f1(){\n    String x = Runes; \n    print(x.codeUnits);  //[82,117,110,101,115] \n}"
+        }
+    ]
+}
