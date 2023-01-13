@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_presentation/page/notion.dart';
 
 void main() {
@@ -31,6 +34,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late List catalogdata;
+  Future<String> loadData() async {
+    var data = await rootBundle.loadString("data.json");
+    setState(() {
+      catalogdata = json.decode(data);
+    });
+    return "success";
+  }
+
+  void initState() {
+    // TODO: implement initState
+    this.loadData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-            child: Column(children: [Expanded(child: _buildMain(context))])));
+            child: Column(children: [
+          Expanded(child: _buildMain(context, catalogdata))
+        ])));
   }
 }
 
-Widget _buildMain(BuildContext context) {
+Widget _buildMain(BuildContext context, List catalogdata) {
   return Card(
       child: ListView(children: [
     SingleChildScrollView(
@@ -54,14 +74,17 @@ Widget _buildMain(BuildContext context) {
             style: TextStyle(fontSize: 25),
           ),
           const Padding(padding: EdgeInsets.only(top: 20)),
-          _buildbutton(context, "Exemple 1", const notion(), Icons.add_a_photo),
+          catalogdata[0]["accueil"].forEach(
+            (n) =>
+                _buildbutton(context, "Exemple 1", const notion(), catalogdata),
+          )
         ],
       ),
     ),
   ]));
 }
 
-Widget _buildbutton(context, texte, redirection, icon) {
+Widget _buildbutton(context, texte, redirection, catalogdata) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
       backgroundColor: Colors.blue,
